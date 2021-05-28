@@ -8,7 +8,7 @@ from selenium.webdriver.support import expected_conditions as EC
 options = webdriver.ChromeOptions()
 options.add_experimental_option('detach', True)
 openBrowser = webdriver.Chrome(
-    chrome_options=options, executable_path=r'E:\WebDriver\chromedriver.exe')
+    chrome_options=options, executable_path=r'E:\WebDriver\chromedriver.exe') # This is where you may have to change the chromedriver path
 
 
 openBrowser.get(
