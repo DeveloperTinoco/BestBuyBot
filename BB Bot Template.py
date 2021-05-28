@@ -11,8 +11,7 @@ openBrowser = webdriver.Chrome(
     chrome_options=options, executable_path=r'E:\WebDriver\chromedriver.exe') # This is where you may have to change the chromedriver path
 
 
-openBrowser.get(
-    'INSERT URL LINK HERE FOR THE ITEM YOU WANT THE BOT TO PURCHASE')
+openBrowser.get('INSERT URL LINK HERE FOR THE ITEM YOU WANT THE BOT TO PURCHASE')
 
 
 def checkSuccess():
@@ -33,13 +32,13 @@ def checkSuccess():
 
         time.sleep(.5)
         addToCart()
+        
     else:
         pass
 
 
 def addToCart():
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.CLASS_NAME, 'btn-primary')))
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.CLASS_NAME, 'btn-primary')))
     addCart = openBrowser.find_element_by_class_name('btn-primary')
     addCart.click()
     time.sleep(1.1)
@@ -48,43 +47,31 @@ def addToCart():
 
 
 def goToCart():
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.CLASS_NAME, 'go-to-cart-button')))
-    goCart = openBrowser.find_element_by_class_name(
-        'go-to-cart-button')
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.CLASS_NAME, 'go-to-cart-button')))
+    goCart = openBrowser.find_element_by_class_name('go-to-cart-button')
     goCart.click()
     print('Going to cart.')
 
 
 def goToCheckout():
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.CLASS_NAME, 'checkout-buttons')))
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.CLASS_NAME, 'checkout-buttons')))
     checkout = openBrowser.find_element_by_class_name('btn-primary')
     checkout.click()
     print('Going to checkout.')
 
 
 def signIn():
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.ID, 'fld-e')))
-    email = openBrowser.find_element_by_id(
-        'fld-e').send_keys('INSERT EMAIL HERE THAT IS USED TO SIGN IN TO YOUR BEST BUY ACCOUNT')
-
-    password = openBrowser.find_element_by_id(
-        'fld-p1').send_keys('INSERT YOUR PASSWORD FOR BEST BUY HERE')
-
-    signIn = openBrowser.find_element_by_class_name(
-        'cia-form__controls__submit ')
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.ID, 'fld-e')))
+    email = openBrowser.find_element_by_id('fld-e').send_keys('INSERT EMAIL HERE THAT IS USED TO SIGN IN TO YOUR BEST BUY ACCOUNT')
+    password = openBrowser.find_element_by_id('fld-p1').send_keys('INSERT YOUR PASSWORD FOR BEST BUY HERE')
+    signIn = openBrowser.find_element_by_class_name('cia-form__controls__submit ')
     signIn.click()
     print('Signing back in.')
 
 
 def placeOrder():
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.ID, 'credit-card-cvv')))
-    security_code = openBrowser.find_element_by_id(
-        'credit-card-cvv').send_keys('INSERT YOUR CVV FROM YOUR CARD THAT IS ALREADY ON FILE HERE')
-
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.ID, 'credit-card-cvv')))
+    security_code = openBrowser.find_element_by_id('credit-card-cvv').send_keys('INSERT YOUR CVV FROM YOUR CARD THAT IS ALREADY ON FILE HERE')
     orderButton = openBrowser.find_element_by_class_name('btn-primary')
     orderButton.click()
     print('Checkout Successful!')
@@ -92,8 +79,7 @@ def placeOrder():
 
 while True:
 
-    WebDriverWait(openBrowser, 3000).until(
-        EC.presence_of_element_located((By.CLASS_NAME, 'add-to-cart-button')))
+    WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.CLASS_NAME, 'add-to-cart-button')))
     button = openBrowser.find_element_by_class_name('add-to-cart-button')
     isEnabled = button.is_enabled()
 
