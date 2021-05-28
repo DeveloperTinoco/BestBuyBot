@@ -7,8 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 options = webdriver.ChromeOptions()
 options.add_experimental_option('detach', True)
-openBrowser = webdriver.Chrome(
-    chrome_options=options, executable_path=r'E:\WebDriver\chromedriver.exe') # This is where you may have to change the chromedriver path
+openBrowser = webdriver.Chrome(chrome_options=options, executable_path=r'E:\WebDriver\chromedriver.exe') # This is where you may have to change the chromedriver path
 
 
 openBrowser.get('INSERT URL LINK HERE FOR THE ITEM YOU WANT THE BOT TO PURCHASE')
@@ -62,8 +61,8 @@ def goToCheckout():
 
 def signIn():
     WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.ID, 'fld-e')))
-    email = openBrowser.find_element_by_id('fld-e').send_keys('INSERT EMAIL HERE THAT IS USED TO SIGN IN TO YOUR BEST BUY ACCOUNT')
-    password = openBrowser.find_element_by_id('fld-p1').send_keys('INSERT YOUR PASSWORD FOR BEST BUY HERE')
+    email = openBrowser.find_element_by_id('fld-e').send_keys('INSERT EMAIL HERE THAT IS USED TO SIGN IN TO YOUR BEST BUY ACCOUNT') # Email goes here in between the ' '
+    password = openBrowser.find_element_by_id('fld-p1').send_keys('INSERT YOUR PASSWORD FOR BEST BUY HERE') # Password goes here in between the ' ' 
     signIn = openBrowser.find_element_by_class_name('cia-form__controls__submit ')
     signIn.click()
     print('Signing back in.')
@@ -71,7 +70,7 @@ def signIn():
 
 def placeOrder():
     WebDriverWait(openBrowser, 3000).until(EC.presence_of_element_located((By.ID, 'credit-card-cvv')))
-    security_code = openBrowser.find_element_by_id('credit-card-cvv').send_keys('INSERT YOUR CVV FROM YOUR CARD THAT IS ALREADY ON FILE HERE')
+    security_code = openBrowser.find_element_by_id('credit-card-cvv').send_keys('INSERT YOUR CVV FROM YOUR CARD THAT IS ALREADY ON FILE HERE') # CVV goes here in between the ' '
     orderButton = openBrowser.find_element_by_class_name('btn-primary')
     orderButton.click()
     print('Checkout Successful!')
